@@ -1,12 +1,12 @@
 {
     "name":"PresideCMS Toomba Skeleton",
-    "version":"1.0.1",
+    "version":"1.0.2",
     "author":"Toomba",
     "slug":"preside-toomba-skeleton",
     "createPackageDirectory":false,
     "homepage":"https://github.com/toomba/preside-toomba-skeleton",
     "type":"preside-skeletons",
-    "location":"https://github.com/toomba/preside-toomba-skeleton/archive/1.0.1.zip",
+    "location":"https://github.com/toomba/preside-toomba-skeleton/archive/1.0.2.zip",
     "repository":{
         "type":"git",
         "url":"https://github.com/toomba/preside-toomba-skeleton"
