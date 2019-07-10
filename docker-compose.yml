@@ -1,0 +1,85 @@
+version: '2.1'
+
+services:
+  # Application Server
+
+  db:
+    image: mysql:5.7
+    command: mysqld --sql-mode=NO_ENGINE_SUBSTITUTION --disable-partition-engine-check --explicit_defaults_for_timestamp --skip-name-resolve
+    restart: always
+    environment:
+      # MySQL environment variables
+      MYSQL_ROOT_PASSWORD: 'toomba'
+      TZ: 'Europe/Amsterdam'
+    volumes:
+      - ./.db_backup:/docker-entrypoint-initdb.d
+      - ./.db_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    # mysqldump --user=root --password=toomba --host=127.0.0.1 --protocol=tcp --default-character-set=utf8 --skip-triggers -B "toomba_werkt" > "/docker-entrypoint-initdb.d/data_toomba_werkt.sql"
+
+
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: toomba/toomba_werkt
+    environment:
+      # CommandBox settings
+      PORT: 80
+      SSL_PORT: 443
+
+      # MySQL settings
+      LUCEE_DB_DATASOURCE: 'preside'
+      LUCEE_DB_USERNAME: 'root'
+      LUCEE_DB_PASSWORD: 'toomba'
+      LUCEE_DB_HOST: 'db'
+      LUCEE_DB_NAME: 'toomba_werkt'
+
+      # Lucee Mail settings
+      LUCEE_MAIL_IP: 'mailcatcher'
+      LUCEE_MAIL_PORT: '25'
+      LUCEE_MAIL_USERNAME: ''
+      LUCEE_MAIL_PASSWORD: ''
+      LUCEE_MAIL_USE_SSL: 'false'
+      LUCEE_MAIL_USE_TLS: 'false'
+
+      # ConfigBox: admin password
+      cfconfig_adminPassword: 'toomba'
+      cfconfig_inspectTemplate: 'always'
+
+      # Forgebox install dependencies
+      BOX_INSTALL: 'true'
+
+      LUCEE_APPLICATION_SESSIONCLUSTER: 'true'
+      LUCEE_APPLICATION_SESSIONSTORAGE: 'preside'
+
+      PRESIDE_APPLICTION_ID: 'FPS'
+      PRESIDE_showerrors: 'true'
+      PRESIDE_autosyncdb: 'true'
+
+      # FusionReactor
+      FR_ENABLE: 'true'
+      FR_LICENSEKEY: 'LMKWA-2PL3M-YGSK0-NA5DZ-YMWYW'
+
+
+      # Redmine API
+      REDMINE_APIKey: 'fb042717a259a6cbea4434adb61e12e7b8915518'
+      REDMINE_BASEURL: 'https://project.toomba.nl/'
+
+      # Sagro API
+      SAGRO_APIKey: 'eW9vYmlzYWdyb2FwaToyNEQlRjkyJVRmaXA2c3Q9L0olVg=='
+      SAGRO_BASEURL: 'https://sagrodemo.yoobi.nl/api/v1/'
+
+    ports:
+      - '80:80'
+      - '8088:8088'
+    links:
+      - db:db
+    volumes:
+      - ./:/app
+
+  mailcatcher:
+    image: helder/mailcatcher
+    ports:
+      - 1080:80

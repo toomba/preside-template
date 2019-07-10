@@ -1,0 +1,28 @@
+{
+    "name":"${site_name}",
+    "version":"1.0.0",
+    "author":"${author}",
+    "slug":"${site_id}",
+    "createPackageDirectory":false,
+    "private":true,
+    "installPaths":{
+        "presidecms":"application/preside/",
+        "preside-ext-data-api":"application/extensions/preside-ext-data-api/",
+        "testbox":"testbox/"
+    },
+    "devDependencies":{
+        "testbox":"^2.7.0"
+    },
+    "dependencies":{
+        "presidecms":"10.10.22",
+        "preside-ext-data-api":"^1.0.14.00032"
+    },
+    "testbox":{
+        "runner":"http://localhost/tests/runner.cfm",
+        "watchers":[
+            "tests/**.cfc"
+        ],
+        "watchDelay":"250"
+    }
+}
+    
