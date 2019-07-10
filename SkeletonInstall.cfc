@@ -35,9 +35,12 @@ component extends="commandbox.system.BaseCommand" {
 		var appCfcPath          = arguments.directory & "/Application.cfc";
 		var boxJsonPath         = arguments.directory & "/box.json";
 		var boxJsonTemplatePath = arguments.directory & "/box.json.template";
+		var dockerComposePath   = arguments.directory & "/docker-compose.yml";
+		
 		var config              = FileRead( configCfcPath       );
 		var appcfc              = FileRead( appCfcPath          );
 		var boxjson             = FileRead( boxJsonTemplatePath );
+		var dockerCompose       = FileRead( dockerComposePath );
 
 		config  = ReplaceNoCase( config , "${site_id}", siteId, "all" );
 		config  = ReplaceNoCase( config , "${admin_path}", adminPath, "all" );
@@ -45,10 +48,12 @@ component extends="commandbox.system.BaseCommand" {
 		boxjson = ReplaceNoCase( boxjson, '${site_name}', appName, "all" );
 		boxjson = ReplaceNoCase( boxjson, '${site_id}', siteId, "all" );
 		boxjson = ReplaceNoCase( boxjson, '${author}', author, "all" );
+		dockerCompose  = ReplaceNoCase( dockerCompose , "${site_id}", siteId, "all" );
 
 		FileWrite( configCfcPath, config );
 		FileWrite( appCfcPath   , appcfc );
 		FileWrite( boxJsonPath  , boxjson );
+		FileWrite( dockerComposePath  , dockerCompose );
 		FileDelete( boxJsonTemplatePath );
 	}
 

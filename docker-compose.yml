@@ -16,14 +16,14 @@ services:
       - ./.db_data:/var/lib/mysql
     ports:
       - 3306:3306
-    # mysqldump --user=root --password=toomba --host=127.0.0.1 --protocol=tcp --default-character-set=utf8 --skip-triggers -B "toomba_werkt" > "/docker-entrypoint-initdb.d/data_toomba_werkt.sql"
+    # mysqldump --user=root --password=toomba --host=127.0.0.1 --protocol=tcp --default-character-set=utf8 --skip-triggers -B "${site_id}" > "/docker-entrypoint-initdb.d/db.sql"
 
 
   web:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: toomba/toomba_werkt
+    image: toomba/${site_id}
     environment:
       # CommandBox settings
       PORT: 80
@@ -34,7 +34,7 @@ services:
       LUCEE_DB_USERNAME: 'root'
       LUCEE_DB_PASSWORD: 'toomba'
       LUCEE_DB_HOST: 'db'
-      LUCEE_DB_NAME: 'toomba_werkt'
+      LUCEE_DB_NAME: '${site_id}'
 
       # Lucee Mail settings
       LUCEE_MAIL_IP: 'mailcatcher'
