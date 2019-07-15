@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: toomba_werkt
+-- Host: 127.0.0.1    Database: ${site_id}
 -- ------------------------------------------------------
 -- Server version	5.7.25
 
@@ -16,12 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `toomba_werkt`
+-- Current Database: `${site_id}`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `toomba_werkt` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `${site_id}` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `toomba_werkt`;
+USE `${site_id}`;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

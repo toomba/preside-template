@@ -14,7 +14,7 @@
         "testbox":"^2.7.0"
     },
     "dependencies":{
-        "presidecms":"10.10.22",
+        "presidecms":"^10.10.22",
         "preside-ext-data-api":"^1.0.14.00032"
     },
     "testbox":{
