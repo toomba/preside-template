@@ -31,12 +31,12 @@ component extends="commandbox.system.BaseCommand" {
 		print.greenLine( "");
 		print.greenLine( "Thank you. Finalizing your template now..." );
 
-		var configCfcPath       = arguments.directory & "/application/config/Config.cfc";
-		var appCfcPath          = arguments.directory & "/Application.cfc";
-		var boxJsonPath         = arguments.directory & "/box.json";
-		var boxJsonTemplatePath = arguments.directory & "/box.json.template";
-		var dockerComposePath   = arguments.directory & "/docker-compose.yml";
-		var dbBackUpPath   		= arguments.directory & "/.db_backup/db.sql";
+		var configCfcPath       = arguments.directory & "application/config/Config.cfc";
+		var appCfcPath          = arguments.directory & "Application.cfc";
+		var boxJsonPath         = arguments.directory & "box.json";
+		var boxJsonTemplatePath = arguments.directory & "box.json.template";
+		var dockerComposePath   = arguments.directory & "docker-compose.yml";
+		var dbBackUpPath   		= arguments.directory & ".db_backup/db.sql";
 		
 		var config              = FileRead( configCfcPath       );
 		var appcfc              = FileRead( appCfcPath          );
