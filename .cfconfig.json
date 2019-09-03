@@ -107,7 +107,7 @@
             "password":"${LUCEE_DB_PASSWORD}",
             "database":"${LUCEE_DB_NAME}",
             "dsn":"jdbc:mysql://{host}:{port}/{database}",
-            "custom":"useUnicode=true&characterEncoding=UTF-8&useSSL=false&verifyServerCertificate=false",
+            "custom":"useUnicode=true&characterEncoding=UTF-8&useSSL=false&verifyServerCertificate=false&serverTimezone=CET",
             "port":"3306",
             "class":"org.gjt.mm.mysql.Driver",
             "validate":"false",
