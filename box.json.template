@@ -11,7 +11,8 @@
         "testbox":"testbox/"
     },
     "devDependencies":{
-        "testbox":"^2.7.0"
+        "testbox":"^2.7.0",
+        "commandbox-fusionreactor": "^2.4.15"
     },
     "dependencies":{
         "presidecms":"^10.10.22",
@@ -25,4 +26,3 @@
         "watchDelay":"250"
     }
 }
-    
