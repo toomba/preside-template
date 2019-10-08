@@ -60,7 +60,7 @@ services:
 
       # FusionReactor
       FR_ENABLE: 'true'
-      FR_LICENSEKEY: 'LMKWA-2PL3M-YGSK0-NA5DZ-YMWYW'
+      FR_LICENSEKEY: ''
 
 
       # Redmine API

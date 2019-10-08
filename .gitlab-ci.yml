@@ -1,1 +1,41 @@
-#TODO
+include:
+  - template: Auto-DevOps.gitlab-ci.yml
+
+variables:
+  ## ADD IN THE PROJECT LEVEL
+  TEST_DISABLED: "true"
+  CODE_QUALITY_DISABLED: "true"
+  LICENSE_MANAGEMENT_DISABLED: "true"
+  PERFORMANCE_DISABLED: "true"
+  SAST_DISABLED: "true"
+  DEPENDENCY_SCANNING_DISABLED: "true"
+  CONTAINER_SCANNING_DISABLED: "true"
+  DAST_DISABLED: "true"
+  REVIEW_DISABLED: "true"
+# Lucee datasource settings
+  K8S_SECRET_LUCEE_DB_DATASOURCE: 'preside'
+  K8S_SECRET_LUCEE_DB_USERNAME: ''
+  K8S_SECRET_LUCEE_DB_PASSWORD: ''
+  K8S_SECRET_LUCEE_DB_HOST: ''
+  K8S_SECRET_LUCEE_DB_NAME: ''
+  K8S_SECRET_LUCEE_APPLICATION_SESSIONSTORAGE: 'preside'
+
+  K8S_SECRET_cfconfig_adminPassword: 'toomba'
+  K8S_SECRET_cfconfig_inspectTemplate: 'always'
+
+  K8S_SECRET_PRESIDE_showerrors: 'true'
+  K8S_SECRET_PRESIDE_autosyncdb: 'true'
+
+  K8S_SECRET_FR_ENABLE: "false"
+  K8S_SECRET_FR_LICENSEKEY: ""
+
+  #https://gitlab.com/gitlab-org/charts/auto-deploy-app/tree/master/
+
+  HELM_UPGRADE_EXTRA_ARGS: "--set livenessProbe.path=/ \
+                            --set readinessProbe.path=/ \
+                            --set service.externalPort=80 \
+                            --set service.internalPort=80 \
+                            --set livenessProbe.initialDelaySeconds=75 \
+                            --set readinessProbe.initialDelaySeconds=60 \
+                            --set livenessProbe.timeoutSeconds=30 \
+                            --set readinessProbe.timeoutSeconds=30"

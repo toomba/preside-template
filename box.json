@@ -1,13 +1,13 @@
 {
     "name":"PresideCMS Toomba Skeleton",
-    "version":"1.0.7",
+    "version":"1.0.8",
     "author":"Toomba",
     "slug":"preside-toomba-skeleton",
     "createPackageDirectory":false,
     "homepage":"https://github.com/toomba/preside-toomba-skeleton",
     "type":"preside-skeletons",
 
-    "location":"https://github.com/toomba/preside-toomba-skeleton/archive/1.0.7.zip",
+    "location":"https://github.com/toomba/preside-toomba-skeleton/archive/1.0.8.zip",
     "repository":{
         "type":"git",
         "url":"https://github.com/toomba/preside-toomba-skeleton"
@@ -18,7 +18,8 @@
         "testbox":"testbox/"
     },
     "devDependencies":{
-        "testbox":"^2.7.0"
+        "testbox": "^2.7.0",
+        "commandbox-fusionreactor": "^2.4.15"
     },
     "dependencies":{
         "presidecms":"^10.10.22",
