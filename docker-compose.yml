@@ -54,22 +54,17 @@ services:
       LUCEE_APPLICATION_SESSIONCLUSTER: 'true'
       LUCEE_APPLICATION_SESSIONSTORAGE: 'preside'
 
-      PRESIDE_APPLICTION_ID: 'FPS'
-      PRESIDE_showerrors: 'true'
-      PRESIDE_autosyncdb: 'true'
+      PRESIDE_APPLICTION_ID: '${site_id}'
+      # When autoSyncDb set to false, the {webroot}/logs/sqlupgrade.sql file is created
+      PRESIDE_autoSyncDb: "true"
+      # Turn off PRESIDE_showErrors in production
+      PRESIDE_showErrors: "true"
+      # When syncDb is set to false, the SyncDB is not even called
+      PRESIDE_syncDb: "true"
 
       # FusionReactor
       FR_ENABLE: 'true'
       FR_LICENSEKEY: ''
-
-
-      # Redmine API
-      REDMINE_APIKey: 'fb042717a259a6cbea4434adb61e12e7b8915518'
-      REDMINE_BASEURL: 'https://project.toomba.nl/'
-
-      # Sagro API
-      SAGRO_APIKey: 'eW9vYmlzYWdyb2FwaToyNEQlRjkyJVRmaXA2c3Q9L0olVg=='
-      SAGRO_BASEURL: 'https://sagrodemo.yoobi.nl/api/v1/'
 
     ports:
       - '80:80'

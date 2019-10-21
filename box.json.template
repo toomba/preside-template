@@ -8,11 +8,13 @@
     "installPaths":{
         "presidecms":"application/preside/",
         "preside-ext-data-api":"application/extensions/preside-ext-data-api/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "preside-ext-dev-helpers":"application/extensions/preside-ext-dev-helpers/"
     },
     "devDependencies":{
         "testbox":"^2.7.0",
-        "commandbox-fusionreactor": "^2.4.15"
+        "commandbox-fusionreactor": "^2.4.15",
+        "preside-ext-dev-helpers":"^1.0.0"
     },
     "dependencies":{
         "presidecms":"^10.10.22",

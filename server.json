@@ -1,35 +1,36 @@
 {
-    "name":"Toombademo",
-    "openbrowser":"false",
-    "debug":false,
-    "trace":false,
-    "jvm":{
-        "heapSize": 512,
-        "args": "-Dfrlicenseservice.leasetime.hint=10"
+    "name": "${PRESIDE_APPLICTION_ID:toomba-preside}",
+    "openbrowser": "false",
+    "debug": false,
+    "trace": false,
+    "jvm": {
+        "args": "-Dlog4j.configuration=file:///app/log4j.properties -Dfrlicenseservice.leasetime.hint=10"
     },
-    "web":{
-        "directoryBrowsing":false,
+    "web": {
+        "directoryBrowsing": false,
         "welcomeFiles": "index.cfm",
-        "host":"0.0.0.0",
-        "http":{
-            "port":"80"
+        "host": "0.0.0.0",
+        "http": {
+            "port": "80"
         },
-        "rewrites":{
-            "enable":true,
-            "config":"${APP_DIR}/urlrewrite.xml",
-            "statusPath":"/rewriteStatus",
-            "configReloadSeconds":30
+        "rewrites": {
+            "enable": true,
+            "config": "${APP_DIR}/urlrewrite.xml"
         }
     },
-    "app":{
-        "serverHomeDirectory":"/root/serverHome"
+    "app": {
+        "serverHomeDirectory": "/root/serverHome"
     },
-    "fusionreactor":{
-        "enable": "${FR_ENABLE}",
+    "runwar": {
+        "args": "--gzip-enable=true"
+    },
+    "fusionreactor": {
+        "enable": "${FR_ENABLE:false}",
         "licenseKey": "${FR_LICENSEKEY}",
         "licenseDeactivateOnShutdown": true,
         "licenseLeaseTimeout": 10,
         "port": 8088,
-        "cloudGroup": "development,toomba"
+        "password": "${cfconfig_adminPassword:toomba}",
+        "cloudGroup": "preside,development,toomba"
     }
 }
